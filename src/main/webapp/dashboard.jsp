@@ -1,12 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="true" %>
 <%@ page import="com.example.assignment02.model.User" %>
+<%@ page import="com.example.assignment02.dao.UserDao" %>
 <%
     User loggedInUser = (User) session.getAttribute("loggedUser");
     if (loggedInUser == null) {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("login.html");
         return;
     }
+
+    // ✅ Re-fetch from DB to get latest banned status
+    UserDao userDao = new UserDao();
+    loggedInUser = userDao.getUser(loggedInUser.getId());
+
+    if (loggedInUser == null || loggedInUser.isBanned()) {
+        session.invalidate();
+        response.sendRedirect("login.html?error=banned");
+        return;
+    }
+
+    // ✅ Update session with fresh data
+    session.setAttribute("loggedUser", loggedInUser);
 %>
 <!DOCTYPE html>
 <html lang="en">

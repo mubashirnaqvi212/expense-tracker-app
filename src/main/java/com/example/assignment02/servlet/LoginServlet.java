@@ -29,6 +29,12 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
 
+            // ✅ Check if user is banned
+            if (user.isBanned()) {
+                response.sendRedirect("login.html?error=banned");
+                return;
+            }
+
             // ✅ CREATE SESSION
             HttpSession session = request.getSession();
             session.setAttribute("loggedUser", user);
@@ -41,7 +47,6 @@ public class LoginServlet extends HttpServlet {
 
         } else {
             // login failed
-            /*response.sendRedirect("login.jsp?error=1");*/
             response.sendRedirect("login.html?error=1");
         }
     }

@@ -640,7 +640,12 @@
             msg.innerText = "Invalid email or password!";
             msg.style.display = "block";
         }
-
+        // ✅ ADD THIS
+        if (error === "banned") {
+            const msg = document.getElementById("errorMsg");
+            msg.innerText = "Your account has been banned. Please contact support.";
+            msg.style.display = "block";
+        }
         // ================= SIGNUP SUCCESS =================
         const signup = params.get("signup");
         if (signup === "success") {
