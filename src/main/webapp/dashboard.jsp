@@ -109,8 +109,8 @@
 
         .dashboard-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 350px;
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
@@ -142,118 +142,50 @@
             padding: 0.25rem;
         }
 
-        .amount {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .summary-block {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border-left: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
         }
-
-        .income-amount {
-            color: #1e293b;
-        }
-
-        .expense-amount {
-            color: #1e293b;
-        }
-
-        .change {
-            font-size: 0.875rem;
-            color: #10b981;
+        .summary-block.income  { border-left-color: #10b981; }
+        .summary-block.expense { border-left-color: #ef4444; }
+        .summary-block.balance { border-left-color: #3b82f6; }
+        .summary-block.overall { border-left-color: #8b5cf6; }
+        .summary-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 0.25rem;
+            justify-content: center;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
         }
-
-        .my-card {
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
+        .summary-icon.income  { background: #d1fae5; color: #10b981; }
+        .summary-icon.expense { background: #fee2e2; color: #ef4444; }
+        .summary-icon.balance { background: #dbeafe; color: #3b82f6; }
+        .summary-icon.overall { background: #ede9fe; color: #8b5cf6; }
+        .summary-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6b7280;
         }
-
-        .card-chip {
-            width: 32px;
-            height: 24px;
-            background: #fbbf24;
-            border-radius: 4px;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .card-chip::after {
-            content: '';
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            right: 4px;
-            bottom: 4px;
-            background: #92400e;
-            border-radius: 2px;
-        }
-
-        .card-number {
-            font-size: 1.25rem;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-            font-family: 'Courier New', monospace;
-        }
-
-        .card-holder {
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
-
-        .card-logo {
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            display: flex;
-            gap: -8px;
-        }
-
-        .card-logo-circle {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-        }
-
-        .logo-red {
-            background: #ef4444;
-        }
-
-        .logo-orange {
-            background: #f59e0b;
-            margin-left: -8px;
-        }
-
-        .spending-section {
-            margin-top: 2rem;
-        }
-
-        .spending-limit {
-            font-size: 1.25rem;
+        .summary-amount {
+            font-size: 1.75rem;
             font-weight: 700;
             color: #1e293b;
+            line-height: 1.2;
         }
-
-        .spending-used {
-            font-size: 0.875rem;
-            color: #6b7280;
-            margin-bottom: 0.5rem;
-        }
-
-        .progress-bar {
-            height: 6px;
-            background: #f3f4f6;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: #ea580c;
-            width: 37%;
-            border-radius: 3px;
+        .summary-sub {
+            font-size: 0.78rem;
+            color: #9ca3af;
         }
 
         .chart-section {
@@ -642,11 +574,17 @@
 
         @media (max-width: 768px) {
             .dashboard-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .main-content {
                 padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -671,55 +609,39 @@
 
 <div class="main-content">
     <div class="dashboard-grid">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Monthly Income</h3>
-                <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
-            </div>
-            <div class="amount income-amount">$2,645.00</div>
-            <div class="change">
-                <i class="fas fa-arrow-up"></i>
-                12% vs Last month
-            </div>
+
+        <!-- Monthly Income -->
+        <div class="summary-block income">
+            <div class="summary-icon income"><i class="fas fa-arrow-down"></i></div>
+            <div class="summary-label">Monthly Income</div>
+            <div class="summary-amount income-amount">$0.00</div>
+            <div class="summary-sub">Current month earnings</div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Monthly Expenses</h3>
-                <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
-            </div>
-            <div class="amount expense-amount">$1,895.00</div>
-            <div class="change">
-                <i class="fas fa-arrow-up"></i>
-                12% vs Last month
-            </div>
+        <!-- Monthly Expenses -->
+        <div class="summary-block expense">
+            <div class="summary-icon expense"><i class="fas fa-arrow-up"></i></div>
+            <div class="summary-label">Monthly Expenses</div>
+            <div class="summary-amount expense-amount">$0.00</div>
+            <div class="summary-sub">Current month spending</div>
         </div>
 
-        <div class="card my-card">
-            <div class="card-header">
-                <h3 class="card-title">My Card</h3>
-                <button class="card-menu" style="color: rgba(255,255,255,0.8)"><i class="fas fa-ellipsis-h"></i></button>
-            </div>
-            <div style="font-size: 0.75rem; opacity: 0.8; margin-bottom: 1rem;">Linked to your primary wallet</div>
-
-            <div class="card-chip"></div>
-            <div class="card-number">5435 2735 0037 0015</div>
-            <div class="card-holder"><%= loggedInUser.getName() %></div>
-
-            <div class="card-logo">
-                <div class="card-logo-circle logo-red"></div>
-                <div class="card-logo-circle logo-orange"></div>
-            </div>
-
-            <div class="spending-section">
-                <div style="margin-bottom: 0.5rem; font-size: 0.875rem; opacity: 0.9;">Spending Limit</div>
-                <div class="spending-limit">$4,645.00</div>
-                <div class="spending-used">used from $12,645.00</div>
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-            </div>
+        <!-- Remaining Monthly Balance -->
+        <div class="summary-block balance">
+            <div class="summary-icon balance"><i class="fas fa-wallet"></i></div>
+            <div class="summary-label">Remaining This Month</div>
+            <div class="summary-amount monthly-balance">$0.00</div>
+            <div class="summary-sub">Income minus expenses</div>
         </div>
+
+        <!-- Overall Account Balance -->
+        <div class="summary-block overall">
+            <div class="summary-icon overall"><i class="fas fa-chart-line"></i></div>
+            <div class="summary-label">Overall Balance</div>
+            <div class="summary-amount overall-balance">$0.00</div>
+            <div class="summary-sub">All-time net balance</div>
+        </div>
+
     </div>
 
     <div class="chart-section">
@@ -1159,13 +1081,35 @@
         monthlyIncome = income;
         monthlyExpenses = expenses;
 
+        // Monthly Income
         document.querySelector('.income-amount').textContent =
             '$' + income.toFixed(2);
 
+        // Monthly Expenses
         document.querySelector('.expense-amount').textContent =
             '$' + expenses.toFixed(2);
 
-        // Total expenses box
+        // Remaining Monthly Balance
+        var monthlyBalance = income - expenses;
+        var monthlyBalanceEl = document.querySelector('.monthly-balance');
+        monthlyBalanceEl.textContent =
+            (monthlyBalance >= 0 ? '+' : '') + '$' + Math.abs(monthlyBalance).toFixed(2);
+        monthlyBalanceEl.style.color = monthlyBalance >= 0 ? '#10b981' : '#ef4444';
+
+        // Overall Account Balance (all transactions, not filtered)
+        var totalIncome = 0;
+        var totalExpenses = 0;
+        transactions.forEach(function(t) {
+            if (t.type === 'income') totalIncome += t.amount;
+            if (t.type === 'expense') totalExpenses += t.amount;
+        });
+        var overallBalance = totalIncome - totalExpenses;
+        var overallBalanceEl = document.querySelector('.overall-balance');
+        overallBalanceEl.textContent =
+            (overallBalance >= 0 ? '+' : '') + '$' + Math.abs(overallBalance).toFixed(2);
+        overallBalanceEl.style.color = overallBalance >= 0 ? '#10b981' : '#ef4444';
+
+        // Total expenses box (All Expenses card)
         document.querySelector('.total-expenses').textContent =
             '$' + expenses.toFixed(2);
 
