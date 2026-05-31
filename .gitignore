@@ -1,55 +1,53 @@
-    target/
-    !.mvn/wrapper/maven-wrapper.jar
-    !**/src/main/**/target/
-    !**/src/test/**/target/
-    .kotlin
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-    ### IntelliJ IDEA ###
-    .idea/modules.xml
-    .idea/jarRepositories.xml
-    .idea/compiler.xml
-    .idea/libraries/
-    *.iws
-    *.iml
-    *.ipr
+# IntelliJ IDEA - ALL of it
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
 
-    ### Eclipse ###
-    .apt_generated
-    .classpath
-    .factorypath
-    .project
-    .settings
-    .springBeans
-    .sts4-cache
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-    ### NetBeans ###
-    /nbproject/private/
-    /nbbuild/
-    /dist/
-    /nbdist/
-    /.nb-gradle/
-    build/
-    !**/src/main/**/build/
-    !**/src/test/**/build/
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-    ### VS Code ###
-    .vscode/
+# VS Code
+.vscode/
 
-    ### Mac OS ###
-    .DS_Store
+# Mac OS
+.DS_Store
 
-    # Database credentials - NEVER commit these
-    src/main/resources/META-INF/persistence.xml
+# Sensitive - NEVER commit
+src/main/resources/META-INF/persistence.xml
 
-    # AWS related
-    *.pem
-    *.key
+# AWS
+*.pem
+*.key
 
-    # Compiled files
-    *.class
-    *.war
-    *.jar
+# Compiled files
+*.class
+*.war
+*.jar
 
-    # Logs
-    *.log
-    logs/
+# Logs
+*.log
+logs/
