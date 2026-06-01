@@ -13,42 +13,46 @@ A full-stack **Expense Tracking Web Application** built with Java EE technologie
 
 ##  Features
 
-### 👤 Authentication
+###  Authentication
 - User **Signup & Login** with session management
 - Secure password handling
 - Session-based access control
 
-### 💸 Expense Dashboard
+###  Expense Dashboard
 - Add, view, and manage personal expenses
 - Track transactions with categories and amounts
 - Visual expense summary dashboard
 
-### 🛡️ Admin / User Management
+###  Admin / User Management
 - View all registered users
 - **Add / Edit / Delete** user accounts
 - **Ban / Unban** users
 - Full CRUD operations on user accounts
 
 ---
-## 📸 Application Screenshots
+##  Application Screenshots
 
-### 🔐 Authentication
+###  Authentication
 ![Login](screenshots/login-page.jpg)
+
 ![Create Account](screenshots/create-account.jpg)
 
-### 📊 Dashboard
+###  Dashboard
 ![Dashboard 1](screenshots/dashboard-1.jpg)
+
 ![Dashboard 2](screenshots/dashboard-2.jpg)
+
 ![Dashboard 3](screenshots/dashboard-3.jpg)
 
-### 💸 Expense Management
+###  Expense Management
 ![Add Expense](screenshots/add-expense.jpg)
+
 ![Add Income](screenshots/add-income.jpg)
 
-### 🛠️ Admin Panel
+###  Admin Panel
 ![User Management](screenshots/user-management.jpg)
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -64,7 +68,7 @@ A full-stack **Expense Tracking Web Application** built with Java EE technologie
 
 ---
 
-## ☁️ AWS Infrastructure
+##  AWS Infrastructure
 
 ```
 Browser
@@ -116,26 +120,26 @@ src/
 
 ## ☁️ AWS Infrastructure
 
-### 🧠 Architecture Diagram
+###  Architecture Diagram
 ![Architecture](screenshots/aws-architecture.png)
 
-### 🖥️ EC2 Instance
+###  EC2 Instance
 ![EC2 Running](screenshots/ec2-instance-running.jpg)
 ![EC2 Details](screenshots/ec2-instance-details.jpg)
 
-### 🗄️ RDS Database
+###  RDS Database
 ![RDS](screenshots/rds-overview.jpg)
 ![RDS Details](screenshots/rds-details.jpg)
 
-### 🔒 Security Groups
+###  Security Groups
 ![Security Groups](screenshots/security-groups.jpg)
 
-### 🌍 VPC Setup
+###  VPC Setup
 ![VPC](screenshots/vpc-overview.jpg)
 ![Subnets](screenshots/vpc-subnets.jpg)
 ![Route Tables](screenshots/vpc-route-tables.jpg)
 
-## ⚙️ Local Setup
+##  Local Setup
 
 ### Prerequisites
 - Java 17+
@@ -193,7 +197,7 @@ http://localhost:8080/Assignment02/users
 
 ---
 
-## 🖥️ Deployment on Linux (AWS EC2)
+##  Deployment on Linux (AWS EC2)
 
 ### Install Java & Tomcat
 ```bash
@@ -243,7 +247,7 @@ http://your-ec2-ip/Assignment02/users
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Mubashir Naqvi**  
 GitHub: [@mubashirnaqvi212](https://github.com/mubashirnaqvi212)  
@@ -251,6 +255,6 @@ Email: mubashirnaqvi212@gmail.com
 
 ---
 
-## 📄 License
+##  License
 
 This project is open source and available under the [MIT License](LICENSE).
