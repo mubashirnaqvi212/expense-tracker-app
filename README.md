@@ -247,6 +247,12 @@ http://your-ec2-ip/Assignment02/users
 
 ---
 
+##  License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
 ## Author
 
 <p align="left">
@@ -259,8 +265,3 @@ http://your-ec2-ip/Assignment02/users
     <img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </p>
-
-
-##  License
-
-This project is open source and available under the [MIT License](LICENSE).
