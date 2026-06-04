@@ -247,13 +247,19 @@ http://your-ec2-ip/Assignment02/users
 
 ---
 
-##  Author
+## Author
 
-**Mubashir Naqvi**  
-GitHub: [@mubashirnaqvi212](https://github.com/mubashirnaqvi212)  
-Email: mubashirnaqvi212@gmail.com
+<p align="left">
+  <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" width="18"/>
+  <b> Mubashir Naqvi</b>
+</p>
 
----
+<p align="left">
+  <a href="https://github.com/mubashirnaqvi212">
+    <img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
+
 
 ##  License
 
